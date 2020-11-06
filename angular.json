@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "gmail"
+    }
+  },
+  "defaultProject": "gmail",
+  "cli": {
+    "analytics": false
+  }
 }
