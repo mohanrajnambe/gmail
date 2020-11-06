@@ -1,0 +1,8 @@
+<table class="table">
+      <tr *ngFor="let mail of mails | async">
+        <td class="sendername">{{mail.sendername}}</td>
+        <td class="subject">{{mail.subject}}</td>
+        <td class="mailcontent">{{mail.content}}</td>
+        <td class="date">{{mail.date}}</td>
+      </tr>
+</table>
