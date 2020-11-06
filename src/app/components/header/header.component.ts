@@ -11,5 +11,14 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  focus() {
+    document.querySelector('.tb-search').classList.add('focused');
+  }
+
+  focusout()  {
+    
+    document.querySelector('.tb-search').classList.remove('focused');
+  }
 
 }
