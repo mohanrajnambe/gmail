@@ -1,11 +1,31 @@
-<table class="table">
-  <tr *ngFor="let mail of mails">
-    <td class="checkbox-icon"><input type="checkbox"></td>
-    <td class="star-icon"><input class="star" type="checkbox" title="bookmark page"></td>
-    <td class="sendername">{{mail.sendername}}</td>
-    <td class="subject">{{mail.subject}}</td>
-    <td class="mailcontent">{{mail.content}}</td>
-    <td class="date">{{mail.date}}</td>
-  </tr>
-</table>
+<div class="parent">
+  
+    <div [ngClass]="(primaryactive)?'active':''" id="primary" (click)="getPrimaryMails();">
+      <img src="https://www.gstatic.com/images/icons/material/system/2x/inbox_black_20dp.png" class="icons">
+      <p> Primary</p>
+    </div>
+    <div [ngClass]="(socialactive)?'active':''" id="social" (click)="getSocialMails();">
+      <img src="https://www.gstatic.com/images/icons/material/system/2x/people_black_20dp.png" class="icons">
+      <p>Social</p>
+    </div>
+    <div [ngClass]="(promotionsactive)?'active':''" id="promotions" (click)="getPromotionMails();">
+      <img src="https://www.gstatic.com/images/icons/material/system/2x/local_offer_black_20dp.png" class="icons">
+      <p>Promotions</p>
+    </div>
+</div>
 
+
+    <div id="body">
+        <table class="table">
+          <tr *ngFor="let mail of mails">
+            <td class="checkbox-icon"><input type="checkbox"></td>
+            <td class="star-icon"><input class="star" type="checkbox" title="bookmark page"></td>
+            <td class="sendername">{{mail.sendername}}</td>
+            <td class="subject">{{mail.subject}}</td>
+            <td class="mailcontent">{{mail.content}}</td>
+            <td class="date">{{mail.date}}</td>
+          </tr>
+        </table>  
+      </div>
+
+  
