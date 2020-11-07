@@ -15,6 +15,9 @@ import { PageContentComponent } from './page-content/page-content.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { RightSlideNavComponent } from './components/right-slide-nav/right-slide-nav.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 @NgModule({
@@ -35,7 +38,9 @@ import { RightSlideNavComponent } from './components/right-slide-nav/right-slide
     MatIconModule,
     MatTooltipModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

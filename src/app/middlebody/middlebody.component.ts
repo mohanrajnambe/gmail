@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-middlebody',
   templateUrl: './middlebody.component.html',
@@ -20,6 +21,14 @@ export class MiddlebodyComponent implements OnInit {
   socialactive: boolean = false;
   promotionsactive: boolean = false;
   inbox: boolean = true;
+  displayedColumns: string[] = [
+    'checkbox',
+    // 'starIcon',
+    'sendername',
+    // 'subject',
+    'mailcontent',
+    'date'
+  ];
 
   constructor(private http: HttpClient,private route:Router) { 
     let obs = this.http.get("https://5fa4f5bf732de900162e88cb.mockapi.io/emails/primary");
@@ -37,6 +46,7 @@ export class MiddlebodyComponent implements OnInit {
     obs2.subscribe((response) => this.socialmails = response);
     // document.querySelector("promotion").style.visibility = none;
     this.inbox = (this.route.url === '/');
+    console.log(this.route.url);
     
   }
 

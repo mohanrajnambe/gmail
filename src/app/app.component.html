@@ -1,13 +1,11 @@
-<<<<<<< HEAD
-<app-header></app-header>
-<!-- <div class="wrapper"> -->
-    <app-navbar></app-navbar>
-    <app-middlebody></app-middlebody>
-    <!-- <app-page-content></app-page-content> -->
-    <app-right-slide-nav></app-right-slide-nav>
-  <!-- </div> -->
-  
-=======
-<!-- <app-middlebody></app-middlebody> -->
-<router-outlet></router-outlet>
->>>>>>> 234e0551c47dea39c0c56a05755fb338d19b17ae
+<div class="sticky"><app-header></app-header></div>
+
+   
+<div class="wrapper">
+  <div class="left-navbar"><app-navbar></app-navbar></div>
+  <!-- <app-page-content></app-page-content> -->
+  <div class="mail-body"><router-outlet></router-outlet></div>
+    <div><app-right-slide-nav></app-right-slide-nav></div>
+  </div>
+
+  <!-- <app-middlebody></app-middlebody> -->
