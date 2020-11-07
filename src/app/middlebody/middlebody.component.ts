@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-middlebody',
@@ -18,12 +19,14 @@ export class MiddlebodyComponent implements OnInit {
   primaryactive: boolean = true;
   socialactive: boolean = false;
   promotionsactive: boolean = false;
+  inbox: boolean = true;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient,private route:Router) { 
     let obs = this.http.get("https://5fa4f5bf732de900162e88cb.mockapi.io/emails/primary");
     obs.subscribe((response) => {
       this.primarymails = response;
       this.mails = this.primarymails;
+      this.shuffleArray(this.mails);
     });
     
     
@@ -33,7 +36,18 @@ export class MiddlebodyComponent implements OnInit {
     let obs2 = this.http.get("https://5fa4f5bf732de900162e88cb.mockapi.io/emails/social");
     obs2.subscribe((response) => this.socialmails = response);
     // document.querySelector("promotion").style.visibility = none;
+    this.inbox = (this.route.url === '/');
+    
   }
+
+  shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
 
   ngOnInit(): void {
   }
