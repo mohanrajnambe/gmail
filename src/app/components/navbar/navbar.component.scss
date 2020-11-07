@@ -1,0 +1,16 @@
+// :host {
+//     background: #20262c;
+//     color: rgb(226, 172, 23);
+//   }
+  
+//   #sidebar {
+//   width: 265px;
+//   height: 100vh;
+//   transition: all 0.3s;
+//   }
+  
+  #sidebar.hidden {
+    width: 265px;
+  }
+  
+  
