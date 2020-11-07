@@ -1,1 +1,22 @@
-<p>navbar works!</p>
+
+<nav id="sidebar" class="navbar-dark bg-dark" [ngClass]="{'hidden': sidenavservice.hideSideNav }">
+      <mat-nav-list>
+        <mat-list-item>
+          <mat-icon mat-list-icon>person</mat-icon>
+          <h4 mat-line *ngIf="sidenavservice.hideSideNav">Inbox</h4>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>assignment</mat-icon>
+          <h4 mat-line *ngIf="sidenavservice.hideSideNav">Starred</h4>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>domain</mat-icon>
+          <h4 mat-line *ngIf="sidenavservice.hideSideNav">Snoozed</h4>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder_shared</mat-icon>
+          <h4 mat-line *ngIf="sidenavservice.hideSideNav">Trash</h4>
+        </mat-list-item>
+      </mat-nav-list>
+  </nav>
+  

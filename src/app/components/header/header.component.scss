@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 $border-color:#dadbdd;
+.container{
+    height:64px;
+    z-index: 10;
+}
 .example-spacer {
     flex: 1 1 auto;
   }
@@ -65,10 +69,15 @@ mat-icon{
     padding:10px;
 }
 mat-toolbar{
-  background-color: white;
+    height:100%;
+    background-color: white;
     border-bottom: 1.5px solid $border-color;
+    img:hover{
+        cursor: pointer;
+    }
 }
 mat-icon:hover{
+    cursor: pointer;
     background-color: #dad5d5;
     // padding:10px;
     border-radius: 50%;
