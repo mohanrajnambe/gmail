@@ -20,7 +20,7 @@ import { RightSlideNavComponent } from './components/right-slide-nav/right-slide
 @NgModule({
   declarations: [
     AppComponent,
-    MiddlebodyComponent
+    MiddlebodyComponent,
     HeaderComponent,
     NavbarComponent,
     PageContentComponent,
@@ -29,7 +29,7 @@ import { RightSlideNavComponent } from './components/right-slide-nav/right-slide
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
