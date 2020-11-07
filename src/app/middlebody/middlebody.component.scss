@@ -1,3 +1,5 @@
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css";
+
 .parent{
     height: 50px;
     width: 85%;
@@ -36,8 +38,7 @@ p{
 table {
     width: 85%;    
     margin-left: 15%;
-    font-size: 12px;
-    
+    font-size: 12px;    
     td.checkbox-icon{width: 4%;}
     td.star-icon{width: 4%;}
 

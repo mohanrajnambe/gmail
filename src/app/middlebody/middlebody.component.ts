@@ -37,6 +37,7 @@ export class MiddlebodyComponent implements OnInit {
     obs2.subscribe((response) => this.socialmails = response);
     // document.querySelector("promotion").style.visibility = none;
     this.inbox = (this.route.url === '/');
+    
   }
 
   shuffleArray(array) {
