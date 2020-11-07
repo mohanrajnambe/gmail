@@ -8,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MiddlebodyComponent implements OnInit {
   mails: any;
+  
   constructor(private http: HttpClient) { 
-    this.mails = this.http.get("https://5fa4f5bf732de900162e88cb.mockapi.io/emails/promotions");
-    console.log(this.mails);
+    let obs = this.http.get("https://5fa4f5bf732de900162e88cb.mockapi.io/emails/primary");
+    obs.subscribe((response) => this.mails=response);
   }
 
   ngOnInit(): void {

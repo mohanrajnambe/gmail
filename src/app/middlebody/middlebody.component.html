@@ -1,8 +1,11 @@
 <table class="table">
-      <tr *ngFor="let mail of mails | async">
-        <td class="sendername">{{mail.sendername}}</td>
-        <td class="subject">{{mail.subject}}</td>
-        <td class="mailcontent">{{mail.content}}</td>
-        <td class="date">{{mail.date}}</td>
-      </tr>
+  <tr *ngFor="let mail of mails">
+    <td class="checkbox-icon"><input type="checkbox"></td>
+    <td class="star-icon"><input class="star" type="checkbox" title="bookmark page"></td>
+    <td class="sendername">{{mail.sendername}}</td>
+    <td class="subject">{{mail.subject}}</td>
+    <td class="mailcontent">{{mail.content}}</td>
+    <td class="date">{{mail.date}}</td>
+  </tr>
 </table>
+
