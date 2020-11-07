@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
+import { MiddlebodyComponent } from './middlebody/middlebody.component';
 
 const routes: Routes = [
-  { path : 'mail', component : HeaderComponent},
-  { path : '**', redirectTo:'mail',pathMatch : 'full'}
+  { path: '', component: MiddlebodyComponent },
+  { path: 'starred', component: MiddlebodyComponent },
+  { path: 'sent', component: MiddlebodyComponent },
+  { path: 'trash', component: MiddlebodyComponent }
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-<div class="parent">
+<div class="parent" *ngIf="inbox">
   
     <div [ngClass]="(primaryactive)?'active':''" id="primary" (click)="getPrimaryMails();">
       <img src="https://www.gstatic.com/images/icons/material/system/2x/inbox_black_20dp.png" class="icons">
