@@ -42,7 +42,9 @@
     </ng-container>
     <ng-container matColumnDef="starIcon">
         <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
-        <td mat-cell *matCellDef="let mail"> <mat-icon (click)="toggle();">{{shape}}</mat-icon> </td>
+    <td mat-cell *matCellDef="let mail">
+      <mat-icon (click)="mail.shape=((mail.shape == 'star') ? 'star_border':'star');" style="color: {{(mail.shape == 'star') ? 'gold' : 'grey'}}">{{mail.shape}}</mat-icon> 
+    </td>
     </ng-container>
   <!-- <ng-container matColumnDef="starIcon">
     <th mat-header-cell *matHeaderCellDef style="display: none;"></th>

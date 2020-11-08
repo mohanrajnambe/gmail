@@ -36,6 +36,7 @@ export class MiddlebodyComponent implements OnInit {
     obs.subscribe((response) => {
       this.primarymails = response;
       this.mails = this.primarymails;
+      this.addStarField();
       this.shuffleArray(this.mails);
     });
     
@@ -47,7 +48,7 @@ export class MiddlebodyComponent implements OnInit {
     obs2.subscribe((response) => this.socialmails = response);
     // document.querySelector("promotion").style.visibility = none;
     this.inbox = (this.route.url === '/');
-    // console.log(this.route.url);
+    console.log(this.route.url);
     
     this.shape = 'star_border';
   }
@@ -63,28 +64,36 @@ export class MiddlebodyComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  addStarField() {
+    for (var i = 0; i < this.mails.length; i++) {
+      this.mails[i].shape = "star_border";
+    }
+  }
   getPrimaryMails():void {
     this.mails = this.primarymails;
+    this.addStarField();
     this.primaryactive = true;
     this.socialactive = false;
     this.promotionsactive = false;
   }
   getPromotionMails():void {
     this.mails = this.promotionmails;
+    this.addStarField();
     this.primaryactive = false;
     this.socialactive = false;
     this.promotionsactive = true;
   }
   getSocialMails():void {
     this.mails = this.socialmails;
+    this.addStarField();
     this.primaryactive = false;
     this.socialactive = true;
     this.promotionsactive = false;
   }
 
-  toggle(): void {
-    if (this.shape === 'star') this.shape = 'star_border';
-    else this.shape = 'star';
-  }
+  // toggle(mail): void {
+  //   console.log(mail);
+  //   if (mail.shape === 'star') mail.shape = 'star_border';
+  //   else mail.shape = 'star';
+  // }
 }
