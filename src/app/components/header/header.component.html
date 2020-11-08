@@ -7,10 +7,10 @@
         alt="" aria-hidden="true" style="width:109px;height:40px">
     <span class="example-spacer">
         <div class="tb-search">
-            <mat-icon matTooltip="search" matTooltipClass="tooltip">search</mat-icon>
+            <mat-icon matTooltip="search" matTooltipClass="tooltip" (click)="searchserv.startSearch()">search</mat-icon>
             <input (focus)="focus()" (focusout)="focusout()" type="search" placeholder="Search mail">
             <mat-icon matTooltip="show search options" matTooltipClass="tooltip"
-            (click)="searchserv.startSearch()">arrow_drop_down</mat-icon>
+            >arrow_drop_down</mat-icon>
         </div>
     </span>
     <div class="tb-option">
