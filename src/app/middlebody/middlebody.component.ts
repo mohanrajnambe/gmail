@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar,MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition, } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { SearchService } from '../services/search.service';
 
@@ -23,6 +25,7 @@ export class MiddlebodyComponent implements OnInit {
   promotionsactive: boolean = false;
   inbox: boolean = true;
   shape: string = '';
+  filteredvalue = false;
   displayedColumns: string[] = [
     'checkbox',
     'starIcon',
@@ -32,13 +35,19 @@ export class MiddlebodyComponent implements OnInit {
     'date'
   ];
 
-  constructor(private http: HttpClient,private route:Router,public searchserv: SearchService) { 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+  searchText: string;
+  originalmails: any;
+  constructor(private http: HttpClient,private route:Router,public searchserv: SearchService,private _snackBar: MatSnackBar) { 
     let obs = this.http.get("https://5fa4f5bf732de900162e88cb.mockapi.io/emails/primary");
     obs.subscribe((response) => {
       this.primarymails = response;
       this.mails = this.primarymails;
       this.addStarField();
       this.shuffleArray(this.mails);
+      this.originalmails = JSON.parse(JSON.stringify(this.mails));
     });
     
     
@@ -72,6 +81,7 @@ export class MiddlebodyComponent implements OnInit {
   }
   getPrimaryMails():void {
     this.mails = this.primarymails;
+    this.originalmails = JSON.parse(JSON.stringify(this.mails));
     this.addStarField();
     this.primaryactive = true;
     this.socialactive = false;
@@ -79,6 +89,7 @@ export class MiddlebodyComponent implements OnInit {
   }
   getPromotionMails():void {
     this.mails = this.promotionmails;
+    this.originalmails = JSON.parse(JSON.stringify(this.mails));
     this.addStarField();
     this.primaryactive = false;
     this.socialactive = false;
@@ -86,15 +97,28 @@ export class MiddlebodyComponent implements OnInit {
   }
   getSocialMails():void {
     this.mails = this.socialmails;
+    this.originalmails = JSON.parse(JSON.stringify(this.mails));
     this.addStarField();
     this.primaryactive = false;
     this.socialactive = true;
     this.promotionsactive = false;
   }
 
-  // toggle(mail): void {
-  //   console.log(mail);
-  //   if (mail.shape === 'star') mail.shape = 'star_border';
-  //   else mail.shape = 'star';
-  // }
+  filterfunction(){
+    this.searchText = this.searchserv.getText();
+    this.mails = this.originalmails.filter(res => {
+      return res.sendername.toLocaleLowerCase().match(this.searchText.toLocaleLowerCase());
+    })
+
+    // if()
+    console.log(this.mails.length);
+  }
+  openSnackBar() {
+    this._snackBar.open('Loading...', '', {
+      duration: 1700,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
+  }
+
 }

@@ -8,7 +8,7 @@ import { SearchService } from 'src/app/services/search.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  searchText: string = this.searchserv.getText();
   constructor(public sidenavservice: SideNavService,public searchserv: SearchService) { }
 
   ngOnInit(): void {
@@ -22,5 +22,26 @@ export class HeaderComponent implements OnInit {
     
     document.querySelector('.tb-search').classList.remove('focused');
   }
+
+  newSearch(){ 
+    this.searchserv.setText(this.searchText);
+    if(this.searchText.length>0){
+      this.searchserv.startSearch();
+    }
+  
+  }
+
+  currentText(){
+    console.log('b4',this.searchText);
+    this.searchserv.setText(this.searchText);
+    if(this.searchText.length>0){
+      this.searchserv.startSearch();
+    }
+    this.searchText = this.searchserv.getText();
+
+    console.log('a4',this.searchText);
+
+  }
+  
 
 }

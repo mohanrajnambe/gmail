@@ -1,81 +1,87 @@
-<!-- <div class="top-icon-bar">
-  <span class="top-icons"><mat-checkbox></mat-checkbox></span>
-  <span class="top-icons"><i class="fa fa-refresh" aria-hidden="true"></i></span>
-  <span class="top-icons"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
-</div> -->
-<div class="parent" *ngIf="inbox">
-  <ng-container *ngIf="searchserv.search">
-    {{getPrimaryMails()}}
-  </ng-container>
+  <div class="top-icon-bar">
+    <span class="top-icons"><mat-checkbox matTooltip="Select all" matTooltipClass="tooltip"></mat-checkbox></span>
+    <span class="top-icons"><mat-icon>arrow_drop_down</mat-icon></span>
+    <!-- <span class="top-icons"><i class="fa fa-refresh" aria-hidden="true"></i></span> -->
+    <span class="top-icons gap"><mat-icon matTooltip="Refresh" matTooltipClass="tooltip" mat-stroked-button (click)="openSnackBar()" aria-label="Show an example snack-bar">
+      refresh</mat-icon></span>
+    <span class="top-icons gap">
+      <mat-icon matTooltip="More" matTooltipClass="tooltip" mat-icon-button [matMenuTriggerFor]="menu" 
+      aria-label="Example icon-button with a menu">more_vert</mat-icon>
+        <!-- <mat-icon>more_vert</mat-icon> -->
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span>Mark all as read</span>
+        </button>
+        <!-- <hr> -->
+        <button mat-menu-item disabled>
+          <span><i>Select messages to see more actions</i></span>
+        </button>
+      </mat-menu>
+    
+    </span>
+  
+    <span class="space"></span>
+    <span class="pagination_icons">
+      <!-- <span class="top-icons" id="pgno"><p>1-50 of 1,471</p></span> -->
+      <span class="top-icons"><mat-icon>keyboard</mat-icon></span>
+      <span class="top-icons"><mat-icon matTooltip="Older" matTooltipClass="tooltip" >keyboard_arrow_left</mat-icon></span>
+    <span class="top-icons"><mat-icon matTooltip="Newer" matTooltipClass="tooltip">keyboard_arrow_right</mat-icon></span>
+  </span>
+    <!-- <span class="top-icons"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span> -->
+  </div>
+<div class="parent" *ngIf="inbox && mails.length!=0">
+
   <div [ngClass]="(primaryactive)?'active':''" id="primary" (click)="getPrimaryMails();">
-      <img src="https://www.gstatic.com/images/icons/material/system/2x/inbox_black_20dp.png" class="icons">
-        <!-- <mat-icon mat-list-icon>inbox</mat-icon> -->
-      <p> Primary</p>
-    </div>
-    <div [ngClass]="(socialactive)?'active':''" id="social" (click)="getSocialMails();">
-      <img src="https://www.gstatic.com/images/icons/material/system/2x/people_black_20dp.png" class="icons">
-      <p>Social</p>
-    </div>
-    <div [ngClass]="(promotionsactive)?'active':''" id="promotions" (click)="getPromotionMails();">
-      <img src="https://www.gstatic.com/images/icons/material/system/2x/local_offer_black_20dp.png" class="icons">
-      <p>Promotions</p>
-    </div>
+    <img src="https://www.gstatic.com/images/icons/material/system/2x/inbox_black_20dp.png" class="icons">
+    <p> Primary</p>
+  </div>
+  <div [ngClass]="(socialactive)?'active':''" id="social" (click)="getSocialMails();">
+    <img src="https://www.gstatic.com/images/icons/material/system/2x/people_black_20dp.png" class="icons">
+    <p>Social</p>
+  </div>
+  <div [ngClass]="(promotionsactive)?'active':''" id="promotions" (click)="getPromotionMails();">
+    <img src="https://www.gstatic.com/images/icons/material/system/2x/local_offer_black_20dp.png" class="icons">
+    <p>Promotions</p>
+  </div>
+</div>
+<ng-container *ngIf="searchserv.search">
+  {{filterfunction()}}
+  {{searchserv.startSearch()}}
+</ng-container>
+<div class="message" *ngIf="mails.length==0">
+  <mat-icon>search</mat-icon>
+  <p>No messages matched your search.</p>
 </div>
 
-<!-- 
-    <div id="body">
-        <table mat-table class="mat-elevation-z8">
-          <tr mat-row *ngFor="let mail of mails">
-            <td mat-cell class="checkbox-icon"><input type="checkbox"></td>
-            <td mat-cell class="star-icon"><input class="star" type="checkbox" title="bookmark page"></td>
-            <td mat-cell class="sendername">{{mail.sendername}}</td>
-            <td mat-cell class="subject">{{mail.subject}}</td>
-            <td mat-cell class="mailcontent">{{mail.content}}</td>
-            <td mat-cell class="date">{{mail.date}}</td>
-          </tr>
-        </table>  
-      </div> -->
-
-<!-- <div class="body"> -->
-  
-  <table mat-table [dataSource]="mails" class="mat-elevation-z0">
-    <ng-container matColumnDef="checkbox">
-        <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
-        <td mat-cell *matCellDef="let mail"> <mat-checkbox></mat-checkbox> </td>
-    </ng-container>
-    <ng-container matColumnDef="starIcon">
-        <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
-    <td mat-cell *matCellDef="let mail">
-      <mat-icon (click)="mail.shape=((mail.shape == 'star') ? 'star_border':'star');" style="color: {{(mail.shape == 'star') ? 'gold' : 'grey'}}">{{mail.shape}}</mat-icon> 
-    </td>
-    </ng-container>
-  <!-- <ng-container matColumnDef="starIcon">
+<table mat-table [dataSource]="mails" class="mat-elevation-z0">
+  <ng-container matColumnDef="checkbox">
     <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
-    <td mat-cell *matCellDef="let mail"> <mat-checkbox></mat-checkbox> </td>
-    <td mat-cell class="star-icon"><input class="star" type="checkbox" title="bookmark page"></td>
-  </ng-container> -->
+    <td mat-cell *matCellDef="let mail">
+      <mat-checkbox matTooltip="Select" matTooltipClass="tooltip"></mat-checkbox>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="starIcon">
+    <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
+    <td mat-cell *matCellDef="let mail">
+      <mat-icon matTooltip="Star" matTooltipClass="tooltip"
+        (click)="mail.shape=((mail.shape == 'star') ? 'star_border':'star');"
+        style="color: {{(mail.shape == 'star') ? 'gold' : 'grey'}}">{{mail.shape}}</mat-icon>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="sendername">
+    <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
+    <td mat-cell *matCellDef="let mail"> <b>{{mail.sendername}}</b> </td>
+  </ng-container>
+  <ng-container matColumnDef="mailcontent">
+    <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
+    <td mat-cell *matCellDef="let mail"> <b>{{mail.subject}} </b>&nbsp;- &nbsp;{{mail.content}} </td>
+  </ng-container>
 
-    <ng-container matColumnDef="sendername">
-      <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
-      <td mat-cell *matCellDef="let mail"> <b>{{mail.sendername}}</b> </td>
-    </ng-container>
-  
-    <!-- <ng-container matColumnDef="subject">
-      <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
-      <td mat-cell *matCellDef="let mail"> <b>{{mail.subject}} </b></td>
-    </ng-container>
-   -->
-    <ng-container matColumnDef="mailcontent">
-      <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
-      <td mat-cell *matCellDef="let mail"> <b>{{mail.subject}} </b> {{mail.content}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
-      <td mat-cell *matCellDef="let mail"> <b>{{mail.date}}</b> </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns" [hidden]="true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-<!-- </div> -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef style="display: none;"></th> 
+    <td mat-cell *matCellDef="let mail" > <b style="margin-left: 13px;">{{mail.date}}</b> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns" [hidden]="true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

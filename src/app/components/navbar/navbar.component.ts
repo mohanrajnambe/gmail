@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from 'src/app/services/search.service';
 import { SideNavService } from '../services/side-nav.service';
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { SideNavService } from '../services/side-nav.service';
 export class NavbarComponent implements OnInit {
   entered: boolean = false;
 
-  constructor(public sidenavservice: SideNavService) {
+  constructor(public sidenavservice: SideNavService,public searchService:SearchService) {
     
   }
   ngOnInit(): void{
@@ -28,6 +29,7 @@ export class NavbarComponent implements OnInit {
   }
 
   activate(item){
+    this.searchService.setText('');
     let list:any = document.getElementsByClassName("nav-item");
     for (let i = 0; i < list.length; ++i) {
       list[i].classList.remove('active');

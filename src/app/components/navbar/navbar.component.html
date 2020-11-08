@@ -57,6 +57,7 @@
   <div class="hangout last" id="inbox">
     <mat-icon mat-list-icon>account_circle</mat-icon>
     <h4 mat-line *ngIf="sidenavservice.hideSideNav">User</h4>
+    <mat-icon *ngIf="sidenavservice.hideSideNav">arrow_drop_down</mat-icon>
     <mat-icon mat-list-icon *ngIf="sidenavservice.hideSideNav">add</mat-icon>
   </div>
   <div class="chat last">

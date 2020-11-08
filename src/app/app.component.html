@@ -1,17 +1,9 @@
 <div class="sticky"><app-header></app-header></div>
 
 <div class="wrapper">
-  <div class="left-navbar"><app-navbar></app-navbar></div>     
-  <!-- <app-page-content></app-page-content> -->
+  <app-navbar></app-navbar>
   <div class="mail-body">
-    <div class="top-icon-bar">
-      <span class="top-icons"><mat-checkbox></mat-checkbox></span>
-      <span class="top-icons"><i class="fa fa-refresh" aria-hidden="true"></i></span>
-      <span class="top-icons"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
-    </div>
-    <router-outlet></router-outlet> 
+    <router-outlet></router-outlet>  
   </div>
-    <div><app-right-slide-nav></app-right-slide-nav></div>
+    <app-right-slide-nav></app-right-slide-nav>
 </div>
-
-  <!-- <app-middlebody></app-middlebody> -->
