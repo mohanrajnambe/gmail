@@ -4,9 +4,12 @@
   <span class="top-icons"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
 </div> -->
 <div class="parent" *ngIf="inbox">
-  
-    <div [ngClass]="(primaryactive)?'active':''" id="primary" (click)="getPrimaryMails();">
+  <ng-container *ngIf="searchserv.search">
+    {{getPrimaryMails()}}
+  </ng-container>
+  <div [ngClass]="(primaryactive)?'active':''" id="primary" (click)="getPrimaryMails();">
       <img src="https://www.gstatic.com/images/icons/material/system/2x/inbox_black_20dp.png" class="icons">
+        <!-- <mat-icon mat-list-icon>inbox</mat-icon> -->
       <p> Primary</p>
     </div>
     <div [ngClass]="(socialactive)?'active':''" id="social" (click)="getSocialMails();">

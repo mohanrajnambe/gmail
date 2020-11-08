@@ -5,46 +5,66 @@
         src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png" alt="compose"><span
         *ngIf="sidenavservice.hideSideNav">Compose</span></button>
     <a [routerLink]="['/']">
-      <div class="nav-item align-left" id="inbox" (click)="activate('inbox')">
-        <mat-icon mat-list-icon>person</mat-icon>
+      <div class="nav-item" id="inbox" (click)="activate('inbox')">
+        <mat-icon mat-list-icon>inbox</mat-icon>
         <h4 mat-line *ngIf="sidenavservice.hideSideNav">Inbox</h4>
       </div>
     </a>
     <a [routerLink]="['/starred']">
       <div class="nav-item" id="starred" (click)="activate('starred')">
-              <mat-icon mat-list-icon>assignment</mat-icon>
-              <h4 mat-line *ngIf=" sidenavservice.hideSideNav">Starred</h4>
+        <mat-icon mat-list-icon>starred</mat-icon>
+        <h4 mat-line *ngIf=" sidenavservice.hideSideNav">Starred</h4>
       </div>
     </a>
     <a [routerLink]="['/sent']">
-      <div class="nav-item"  id="sent" (click)="activate('sent')">
-        <mat-icon mat-list-icon>domain</mat-icon>
+      <div class="nav-item" id="sent" (click)="activate('sent')">
+        <mat-icon mat-list-icon>send</mat-icon>
         <h4 mat-line *ngIf="sidenavservice.hideSideNav">Sent</h4>
       </div>
     </a>
-    <!-- <a [routerLink]="['/']">
-        <div class="nav-item">
-            <mat-icon mat-list-icon>folder_shared</mat-icon>
-            <h4 mat-line *ngIf="sidenavservice.hideSideNav">Draft</h4>
-        </div>
-        </a> -->
     <a [routerLink]="['/trash']">
       <div class="nav-item" id="trash" (click)="activate('trash')">
-        <mat-icon mat-list-icon>folder_shared</mat-icon>
-        <h4 mat-line *ngIf="sidenavservice.hideSideNav">Trash</h4>
+        <mat-icon mat-list-icon>delete</mat-icon>
+        <h4 mat-line *ngIf="sidenavservice.hideSideNav">Bin</h4>
       </div>
     </a>
-    <!-- <a [routerLink]="['/']">
-        <div class="nav-item">
-            <mat-icon mat-list-icon>folder_shared</mat-icon>
-            <h4 mat-line *ngIf="sidenavservice.hideSideNav">Less</h4>
-        </div>
-        </a> -->
     <a [routerLink]="['/important']">
-      <div class="nav-item last" id="important" (click)="activate('important')">
-        <mat-icon mat-list-icon>folder_shared</mat-icon>
+      <div class="nav-item" id="important" (click)="activate('important')">
+        <mat-icon mat-list-icon>label</mat-icon>
         <h4 mat-line *ngIf="sidenavservice.hideSideNav">Important</h4>
       </div>
     </a>
+    <!-- <a [routerLink]="['/important']"> -->
+      <div class="nav-item last">
+        <mat-icon mat-list-icon>expand_more</mat-icon>
+        <h4 mat-line *ngIf="sidenavservice.hideSideNav">More</h4>
+      </div>
+    <!-- </a> -->
+  </div>
+  <!-- Meet -->
+  
+  <div class="section-name"><h4 *ngIf=" sidenavservice.hideSideNav">Meet</h4><mat-icon *ngIf="!sidenavservice.hideSideNav" mat-list-icon>duo</mat-icon></div>
+    <div class="meet">
+      <mat-icon mat-list-icon>videocam</mat-icon>
+      <h4 mat-line *ngIf="sidenavservice.hideSideNav">New meeting</h4>
+    </div>
+    <div class="meet last">
+      <mat-icon mat-list-icon>keyboard</mat-icon>
+      <h4 mat-line *ngIf="sidenavservice.hideSideNav">Join a meeting</h4>
+    </div>
+  <!-- hangout -->
+  <div class="section-name"><h4 *ngIf=" sidenavservice.hideSideNav">Hangouts</h4><mat-icon *ngIf="!sidenavservice.hideSideNav" mat-list-icon>forum</mat-icon></div>
+  <div class="hangout last" id="inbox">
+    <mat-icon mat-list-icon>account_circle</mat-icon>
+    <h4 mat-line *ngIf="sidenavservice.hideSideNav">User</h4>
+    <mat-icon mat-list-icon *ngIf="sidenavservice.hideSideNav">add</mat-icon>
+  </div>
+  <div class="chat last">
+    <p *ngIf=" sidenavservice.hideSideNav">No recent chats</p>
+    <p *ngIf=" sidenavservice.hideSideNav">Start a new one</p>
+  </div>
+  <div class="final">
+    <mat-icon *ngIf="sidenavservice.hideSideNav" mat-list-icon>person</mat-icon>
+    <mat-icon *ngIf="sidenavservice.hideSideNav" mat-list-icon>chat</mat-icon>
   </div>
 </nav>

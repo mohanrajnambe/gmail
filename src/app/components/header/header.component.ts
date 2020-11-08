@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SideNavService } from 'src/app/components/services/side-nav.service';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { SideNavService } from 'src/app/components/services/side-nav.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public sidenavservice: SideNavService) { }
+  constructor(public sidenavservice: SideNavService,public searchserv: SearchService) { }
 
   ngOnInit(): void {
   }

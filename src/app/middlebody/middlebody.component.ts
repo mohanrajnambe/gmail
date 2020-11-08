@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SearchService } from '../services/search.service';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class MiddlebodyComponent implements OnInit {
     'date'
   ];
 
-  constructor(private http: HttpClient,private route:Router) { 
+  constructor(private http: HttpClient,private route:Router,public searchserv: SearchService) { 
     let obs = this.http.get("https://5fa4f5bf732de900162e88cb.mockapi.io/emails/primary");
     obs.subscribe((response) => {
       this.primarymails = response;
