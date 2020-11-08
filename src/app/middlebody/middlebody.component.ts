@@ -21,9 +21,10 @@ export class MiddlebodyComponent implements OnInit {
   socialactive: boolean = false;
   promotionsactive: boolean = false;
   inbox: boolean = true;
+  shape: string = '';
   displayedColumns: string[] = [
     'checkbox',
-    // 'starIcon',
+    'starIcon',
     'sendername',
     // 'subject',
     'mailcontent',
@@ -48,6 +49,7 @@ export class MiddlebodyComponent implements OnInit {
     this.inbox = (this.route.url === '/');
     console.log(this.route.url);
     
+    this.shape = 'star_border';
   }
 
   shuffleArray(array) {
@@ -79,5 +81,10 @@ export class MiddlebodyComponent implements OnInit {
     this.primaryactive = false;
     this.socialactive = true;
     this.promotionsactive = false;
+  }
+
+  toggle(): void {
+    if (this.shape === 'star') this.shape = 'star_border';
+    else this.shape = 'star';
   }
 }
