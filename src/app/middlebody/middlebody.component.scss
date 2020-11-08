@@ -110,13 +110,23 @@ table {
 
 
 .mat-column-checkbox{
-    width: 50px;
+    width: 30px;
 }
 
 .mat-column-date{
     width: 50px;
 }
 
+.mat-column-starIcon {
+    width: 40px;
+}
+
+mat-icon {
+    font-size: 20px;
+    padding-top: 4px;
+    color: grey;
+    cursor: pointer;
+}
 // .glyphicon:before {
 //     visibility: visible;
 //    }

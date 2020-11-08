@@ -40,11 +40,15 @@
         <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
         <td mat-cell *matCellDef="let mail"> <mat-checkbox></mat-checkbox> </td>
     </ng-container>
+    <ng-container matColumnDef="starIcon">
+        <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
+        <td mat-cell *matCellDef="let mail"> <mat-icon (click)="toggle();">{{shape}}</mat-icon> </td>
+    </ng-container>
   <!-- <ng-container matColumnDef="starIcon">
     <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
-    <td mat-cell *matCellDef="let mail"> <mat-checkbox  class="star-icon"></mat-checkbox> </td>
-    <!-- <td mat-cell class="star-icon"><input class="star" type="checkbox" title="bookmark page"></td> -->
-  <!-- </ng-container> -->
+    <td mat-cell *matCellDef="let mail"> <mat-checkbox></mat-checkbox> </td>
+    <td mat-cell class="star-icon"><input class="star" type="checkbox" title="bookmark page"></td>
+  </ng-container> -->
 
     <ng-container matColumnDef="sendername">
       <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
