@@ -28,12 +28,12 @@
         <h4 mat-line *ngIf="sidenavservice.hideSideNav">Bin</h4>
       </div>
     </a>
-    <a [routerLink]="['/important']">
+    <!-- <a [routerLink]="['/important']">
       <div class="nav-item" id="important" (click)="activate('important')">
         <mat-icon mat-list-icon>label</mat-icon>
         <h4 mat-line *ngIf="sidenavservice.hideSideNav">Important</h4>
       </div>
-    </a>
+    </a> -->
     <!-- <a [routerLink]="['/important']"> -->
       <div class="nav-item last">
         <mat-icon mat-list-icon>expand_more</mat-icon>
@@ -60,7 +60,7 @@
     <mat-icon *ngIf="sidenavservice.hideSideNav">arrow_drop_down</mat-icon>
     <mat-icon mat-list-icon *ngIf="sidenavservice.hideSideNav">add</mat-icon>
   </div>
-  <div class="chat last">
+  <div class="chat">
     <p *ngIf=" sidenavservice.hideSideNav">No recent chats</p>
     <p *ngIf=" sidenavservice.hideSideNav">Start a new one</p>
   </div>
