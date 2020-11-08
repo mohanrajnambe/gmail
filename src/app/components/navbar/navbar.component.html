@@ -1,22 +1,50 @@
-
-<nav id="sidebar" [ngClass]="{'hidden': sidenavservice.hideSideNav }">
-      <mat-nav-list>
-        <mat-list-item>
-          <mat-icon mat-list-icon>person</mat-icon>
-          <h4 mat-line *ngIf="sidenavservice.hideSideNav">Inbox</h4>
-        </mat-list-item>
-        <mat-list-item>
-          <mat-icon mat-list-icon>assignment</mat-icon>
-          <h4 mat-line *ngIf="sidenavservice.hideSideNav">Starred</h4>
-        </mat-list-item>
-        <mat-list-item>
-          <mat-icon mat-list-icon>domain</mat-icon>
-          <h4 mat-line *ngIf="sidenavservice.hideSideNav">Snoozed</h4>
-        </mat-list-item>
-        <mat-list-item>
-          <mat-icon mat-list-icon>folder_shared</mat-icon>
-          <h4 mat-line *ngIf="sidenavservice.hideSideNav">Trash</h4>
-        </mat-list-item>
-      </mat-nav-list>
-  </nav>
-  
+<nav id="sidebar" [ngClass]="{'hidden': sidenavservice.hideSideNav }" (mouseenter)="mouseEnter() "
+  (mouseleave)="mouseLeave()">
+  <div class="nav-list">
+    <button class="compose align-left" [ngClass]="{'nav-folded':!sidenavservice.hideSideNav}"><img
+        src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png" alt="compose"><span
+        *ngIf="sidenavservice.hideSideNav">Compose</span></button>
+    <a [routerLink]="['/']">
+      <div class="nav-item align-left" id="inbox" (click)="activate('inbox')">
+        <mat-icon mat-list-icon>person</mat-icon>
+        <h4 mat-line *ngIf="sidenavservice.hideSideNav">Inbox</h4>
+      </div>
+    </a>
+    <a [routerLink]="['/starred']">
+      <div class="nav-item" id="starred" (click)="activate('starred')">
+              <mat-icon mat-list-icon>assignment</mat-icon>
+              <h4 mat-line *ngIf=" sidenavservice.hideSideNav">Starred</h4>
+      </div>
+    </a>
+    <a [routerLink]="['/sent']">
+      <div class="nav-item"  id="sent" (click)="activate('sent')">
+        <mat-icon mat-list-icon>domain</mat-icon>
+        <h4 mat-line *ngIf="sidenavservice.hideSideNav">Sent</h4>
+      </div>
+    </a>
+    <!-- <a [routerLink]="['/']">
+        <div class="nav-item">
+            <mat-icon mat-list-icon>folder_shared</mat-icon>
+            <h4 mat-line *ngIf="sidenavservice.hideSideNav">Draft</h4>
+        </div>
+        </a> -->
+    <a [routerLink]="['/trash']">
+      <div class="nav-item" id="trash" (click)="activate('trash')">
+        <mat-icon mat-list-icon>folder_shared</mat-icon>
+        <h4 mat-line *ngIf="sidenavservice.hideSideNav">Trash</h4>
+      </div>
+    </a>
+    <!-- <a [routerLink]="['/']">
+        <div class="nav-item">
+            <mat-icon mat-list-icon>folder_shared</mat-icon>
+            <h4 mat-line *ngIf="sidenavservice.hideSideNav">Less</h4>
+        </div>
+        </a> -->
+    <a [routerLink]="['/important']">
+      <div class="nav-item last" id="important" (click)="activate('important')">
+        <mat-icon mat-list-icon>folder_shared</mat-icon>
+        <h4 mat-line *ngIf="sidenavservice.hideSideNav">Important</h4>
+      </div>
+    </a>
+  </div>
+</nav>

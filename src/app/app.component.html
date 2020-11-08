@@ -1,11 +1,17 @@
 <div class="sticky"><app-header></app-header></div>
 
-   
 <div class="wrapper">
-  <div class="left-navbar"><app-navbar></app-navbar></div>
+  <div class="left-navbar"><app-navbar></app-navbar></div>     
   <!-- <app-page-content></app-page-content> -->
-  <div class="mail-body"><router-outlet></router-outlet></div>
-    <div><app-right-slide-nav></app-right-slide-nav></div>
+  <div class="mail-body">
+    <div class="top-icon-bar">
+      <span class="top-icons"><mat-checkbox></mat-checkbox></span>
+      <span class="top-icons"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+      <span class="top-icons"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+    </div>
+    <router-outlet></router-outlet>
   </div>
+    <div><app-right-slide-nav></app-right-slide-nav></div>
+</div>
 
   <!-- <app-middlebody></app-middlebody> -->
