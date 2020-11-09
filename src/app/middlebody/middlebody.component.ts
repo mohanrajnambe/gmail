@@ -12,10 +12,10 @@ import { SearchService } from '../services/search.service';
   styleUrls: ['./middlebody.component.scss']
 })
 export class MiddlebodyComponent implements OnInit {
-  mails: any;
-  primarymails: any;
-  promotionmails: any;
-  socialmails: any;
+  mails: any = [];
+  primarymails: any = [];
+  promotionmails: any = [];
+  socialmails: any = [];
 
   primaryURL: string = '';
   promotionsURL: string = '';
@@ -34,16 +34,17 @@ export class MiddlebodyComponent implements OnInit {
     'mailcontent',
     'date'
   ];
-
+  
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   searchText: string;
-  originalmails: any;
+  originalmails: any = [];
   constructor(private http: HttpClient,private route:Router,public searchserv: SearchService,private _snackBar: MatSnackBar) { 
     let obs = this.http.get("https://5fa4f5bf732de900162e88cb.mockapi.io/emails/primary");
     obs.subscribe((response) => {
       this.primarymails = response;
+      this.addFields(this.primarymails);
       this.mails = this.primarymails;
       this.shuffleArray(this.mails);
       this.originalmails = JSON.parse(JSON.stringify(this.mails));
@@ -51,14 +52,20 @@ export class MiddlebodyComponent implements OnInit {
     
     
     let obs1 = this.http.get("https://5fa4f5bf732de900162e88cb.mockapi.io/emails/promotions");
-    obs1.subscribe((response) => this.promotionmails = response);
+    obs1.subscribe((response) => {
+      this.promotionmails = response;
+      this.addFields(this.promotionmails);
+    });
 
     let obs2 = this.http.get("https://5fa4f5bf732de900162e88cb.mockapi.io/emails/social");
-    obs2.subscribe((response) => this.socialmails = response);
+    obs2.subscribe((response) => {
+      this.socialmails = response;
+      this.addFields(this.socialmails);
+    });
     // document.querySelector("promotion").style.visibility = none;
     this.inbox = (this.route.url === '/');
     console.log(this.route.url);
-    this.addFields();
+    
     this.shape = 'star_border';
   }
 
@@ -73,17 +80,10 @@ export class MiddlebodyComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  addFields() {
-    for (var i = 0; i < this.mails.length; i++) {
-      this.mails[i].shape = "star_border";
-      this.primarymails[i].shape =  "star_border";
-      this.promotionmails[i].shape =  "star_border";
-      this.socialmails[i].shape =  "star_border";
-
-      // this.mails[i].read = true;
-      // this.primarymails[i].read = true;
-      // this.promotionmails[i].read =  true;
-      // this.socialmails[i].read = true;
+  addFields(currentmails) {
+    for (var i = 0; i < currentmails.length; i++) {
+      currentmails[i].shape = "star_border";
+      currentmails[i].read = false;
     }
   }
   getPrimaryMails():void {
