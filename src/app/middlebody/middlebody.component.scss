@@ -87,7 +87,7 @@ p{
 .allrows{
     background-color: #fdfbfb;
     p{
-    font-weight: 600 !important;
+    font-weight: 600;
     }
 }
 
@@ -116,6 +116,18 @@ p{
     overflow: hidden;
     font-size:.875rem;
     font-weight: 500;
+}
+
+.bl{
+    background-color: #f2f2f2;
+}
+
+.notreadmail{
+    background-color: #fff;
+}
+
+.readText{
+    font-weight: 400 !important;
 }
 
 table {
