@@ -45,7 +45,6 @@ export class MiddlebodyComponent implements OnInit {
     obs.subscribe((response) => {
       this.primarymails = response;
       this.mails = this.primarymails;
-      this.addStarField();
       this.shuffleArray(this.mails);
       this.originalmails = JSON.parse(JSON.stringify(this.mails));
     });
@@ -59,7 +58,7 @@ export class MiddlebodyComponent implements OnInit {
     // document.querySelector("promotion").style.visibility = none;
     this.inbox = (this.route.url === '/');
     console.log(this.route.url);
-    
+    this.addFields();
     this.shape = 'star_border';
   }
 
@@ -74,15 +73,22 @@ export class MiddlebodyComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  addStarField() {
+  addFields() {
     for (var i = 0; i < this.mails.length; i++) {
       this.mails[i].shape = "star_border";
+      this.primarymails[i].shape =  "star_border";
+      this.promotionmails[i].shape =  "star_border";
+      this.socialmails[i].shape =  "star_border";
+
+      // this.mails[i].read = true;
+      // this.primarymails[i].read = true;
+      // this.promotionmails[i].read =  true;
+      // this.socialmails[i].read = true;
     }
   }
   getPrimaryMails():void {
     this.mails = this.primarymails;
     this.originalmails = JSON.parse(JSON.stringify(this.mails));
-    this.addStarField();
     this.primaryactive = true;
     this.socialactive = false;
     this.promotionsactive = false;
@@ -90,7 +96,6 @@ export class MiddlebodyComponent implements OnInit {
   getPromotionMails():void {
     this.mails = this.promotionmails;
     this.originalmails = JSON.parse(JSON.stringify(this.mails));
-    this.addStarField();
     this.primaryactive = false;
     this.socialactive = false;
     this.promotionsactive = true;
@@ -98,7 +103,6 @@ export class MiddlebodyComponent implements OnInit {
   getSocialMails():void {
     this.mails = this.socialmails;
     this.originalmails = JSON.parse(JSON.stringify(this.mails));
-    this.addStarField();
     this.primaryactive = false;
     this.socialactive = true;
     this.promotionsactive = false;
