@@ -65,7 +65,7 @@
     <td mat-cell *matCellDef="let mail" (click)="mail.read=true" [ngClass]="(mail.read)?'readmail':'notreadmail'">
       <mat-icon matTooltip="Star" matTooltipClass="tooltip"
         (click)="mail.shape=((mail.shape == 'star') ? 'star_border':'star');"
-        style="color: {{(mail.shape == 'star') ? 'gold' : 'grey'}}">{{mail.shape}}</mat-icon>
+         [ngClass]="(mail.shape == 'star')?'staractive':'starinactive'">{{mail.shape}}</mat-icon>
     </td>
   </ng-container>
   <ng-container matColumnDef="sendername">
