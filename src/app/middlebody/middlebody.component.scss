@@ -87,7 +87,7 @@ p{
 .allrows{
     background-color: #fdfbfb;
     p{
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     }
 }
 
@@ -147,8 +147,8 @@ table {
     }
 
     
-    td.sendername {width: 15%; font-weight: 600;color:black}
-    td.subject {width: 20%; font-weight: 600;color:black}
+    td.sendername {width: 15%; font-weight: 600;color:black;}
+    td.subject {width: 20%; font-weight: 600;color:black;}
     td.content {width: 58%;}
     td.date {width: 7%; text-overflow: unset !important; overflow: visible !important; font-weight: 600;color:black}
 

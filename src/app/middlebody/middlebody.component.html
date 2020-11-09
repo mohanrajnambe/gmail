@@ -56,7 +56,7 @@
 <table mat-table [dataSource]="mails" class="mat-elevation-z0">
   <ng-container matColumnDef="checkbox">
     <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
-    <td mat-cell *matCellDef="let mail" style="background-color: {{mail.read ? '#f2f2f2' : 'white'}};">
+    <td mat-cell *matCellDef="let mail" style="background-color: {{mail.read ? '#f2f2f2' : 'white'}}">
       <mat-checkbox matTooltip="Select" matTooltipClass="tooltip"></mat-checkbox>
     </td>
   </ng-container>

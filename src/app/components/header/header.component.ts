@@ -9,6 +9,7 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class HeaderComponent implements OnInit {
   searchText: string = this.searchserv.getText();
+  close: boolean = false;
   constructor(public sidenavservice: SideNavService,public searchserv: SearchService) { }
 
   ngOnInit(): void {
