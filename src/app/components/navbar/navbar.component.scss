@@ -9,9 +9,25 @@ a{
 .active{
   >h4{
     font-weight: 600 !important;
-    color: rgb(65, 65, 65);
+    color:#000000;
+  }
+  mat-icon{
+    color:#000000;
   }
   background-color:  #E8E8E8 !important;
+  border-top-right-radius: 30px !important;
+  border-bottom-right-radius: 30px !important;
+}
+
+.inboxactive{
+  >h4{
+    font-weight: 600 !important;
+    color:#FF1500;
+  }
+  mat-icon{
+    color:#FF1500;
+  }
+  background-color:  #FCE8E6 !important;
   border-top-right-radius: 30px !important;
   border-bottom-right-radius: 30px !important;
 }
@@ -23,7 +39,7 @@ a{
   padding-bottom: 2.5px;
   padding-top: 2.5px;
   align-self: center;
-  color: #696464;
+  color: #8a8a8a;
   font-size: 10px;
   transition: all 0.4s;
   margin-right: 20px;
@@ -42,8 +58,10 @@ h4{
 }
 
 .last {
-  border-bottom: 0.5px solid #dbdada;
+  
+  cursor: pointer;
 }
+
 
 #sidebar{
   margin-top: 20px;
@@ -54,6 +72,7 @@ h4{
   transition: all 0.4s;
   .hangout{
     :last-child{
+      
       margin-left:120px;
       font-size: 20px;
     }
@@ -87,20 +106,25 @@ h4{
       font-size: 13px;
   }
 }
+
+
 .compose {
   border: none;
   text-decoration: none;
   display: flex;
   align-items: center;
   column-gap: 8px;
+  width:40%;
+  cursor: pointer;
   border-radius: 25px;
   padding: 8px 23px 8px 15px;
   margin-left: 6px;
   margin-bottom: 20px;
   background-color: white;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.45);
-  -moz-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.45);
-  box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.45);
+  // -webkit-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.45);
+  // -moz-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.45);
+  // box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.45);
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149);
   transition: all 0.4s;
 }
 .nav-folded {
@@ -110,6 +134,8 @@ h4{
   padding-left :26px;
   display: flex;
   column-gap: 11px;
+  border-top: 0.5px solid #dbdada;
+
   height: 28px;
   padding-bottom: 2.5px;
   padding-top: 2.5px;
@@ -171,7 +197,6 @@ h4{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
   padding-bottom: 12px;
   p{
     font-size: 13px;
@@ -203,9 +228,22 @@ h4{
     cursor: pointer;
   }
 }
+
+.composetext{
+  font-family: 'Google Sans', Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  // font-weight: 200;
+  font-size:.875rem;
+  color:#3c4043;
+  font-weight: 500;
+}
+
 .meet:hover{
   cursor: pointer;
 }
 .hangout:hover{
   cursor: pointer;
+}
+.hangicon{
+  opacity: 50%;
+  
 }

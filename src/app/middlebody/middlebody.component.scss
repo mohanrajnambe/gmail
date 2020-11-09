@@ -17,6 +17,8 @@
         color: rgb(80, 77, 77);
         cursor: pointer;
         align-self: center;
+        
+        
     }
     .gap>*{
         margin-left: 35px;
@@ -74,8 +76,21 @@ p{
     display: inline-block;
 }
 .active{
-    border-bottom: 2px solid rgb(255, 0, 0);
+    border-bottom: 2px solid #D93025;
+    color:#D93025;
+    // background-color:  #FCE8E6 !important;
+    mat-icon{
+        color:#D93025;
+    }
 }
+
+.allrows{
+    background-color: #fdfbfb;
+    p{
+    font-weight: 500 !important;
+    }
+}
+
 
 .icons{
     height: 20px;
@@ -99,6 +114,8 @@ p{
     text-align: center;
     cursor: pointer;
     overflow: hidden;
+    font-size:.875rem;
+    font-weight: 500;
 }
 
 table {
@@ -181,6 +198,7 @@ table {
 }
 mat-icon{
     font-size: 25px;
+    margin-right: 10px;
     // color: #b3b7bb;
 }
 mat-icon:hover{

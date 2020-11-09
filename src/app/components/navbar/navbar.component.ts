@@ -28,12 +28,17 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  activate(item){
+  activate(item) {
     this.searchService.setText('');
     let list:any = document.getElementsByClassName("nav-item");
     for (let i = 0; i < list.length; ++i) {
       list[i].classList.remove('active');
+      list[i].classList.remove('inboxactive');
     }
-    document.getElementById(item).classList.add('active');
+    document.getElementById(item).classList.add('active');  
+    if (item == 'inbox') {
+      document.getElementById(item).classList.add('inboxactive');  
+      
+    }
   }
 }

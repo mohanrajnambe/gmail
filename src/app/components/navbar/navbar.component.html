@@ -1,9 +1,9 @@
 <nav id="sidebar" [ngClass]="{'hidden': sidenavservice.hideSideNav }" (mouseenter)="mouseEnter() "
   (mouseleave)="mouseLeave()">
   <div class="nav-list">
-    <button class="compose align-left" [ngClass]="{'nav-folded':!sidenavservice.hideSideNav}"><img
-        src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png" alt="compose"><span
-        *ngIf="sidenavservice.hideSideNav">Compose</span></button>
+    <div class="compose align-left" [ngClass]="{'nav-folded':!sidenavservice.hideSideNav}"><img
+        src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png" alt="compose"><span class="composetext"
+        *ngIf="sidenavservice.hideSideNav">Compose</span></div>
     <a [routerLink]="['/']">
       <div class="nav-item" id="inbox" (click)="activate('inbox')">
         <mat-icon mat-list-icon>inbox</mat-icon>
@@ -61,6 +61,7 @@
     <mat-icon mat-list-icon *ngIf="sidenavservice.hideSideNav">add</mat-icon>
   </div>
   <div class="chat">
+    <div class="hangicon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="5em" height="3em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M15 11l-1 2h-1.5l1-2H12V8h3m-4 3l-1 2H8.5l1-2H8V8h3m.5-6A8.5 8.5 0 0 0 3 10.5a8.5 8.5 0 0 0 8.5 8.5h.5v3.5c4.86-2.35 8-7.5 8-12A8.5 8.5 0 0 0 11.5 2z" fill="#626262"/></svg></div>
     <p *ngIf=" sidenavservice.hideSideNav">No recent chats</p>
     <p *ngIf=" sidenavservice.hideSideNav">Start a new one</p>
   </div>
