@@ -12,6 +12,9 @@ import { SearchService } from '../services/search.service';
   styleUrls: ['./middlebody.component.scss']
 })
 export class MiddlebodyComponent implements OnInit {
+
+
+  
   mails: any = [];
   primarymails: any = [];
   promotionmails: any = [];
@@ -40,6 +43,9 @@ export class MiddlebodyComponent implements OnInit {
 
   searchText: string;
   originalmails: any = [];
+
+
+  
   constructor(private http: HttpClient,private route:Router,public searchserv: SearchService,private _snackBar: MatSnackBar) { 
     let obs = this.http.get("https://5fa4f5bf732de900162e88cb.mockapi.io/emails/primary");
     obs.subscribe((response) => {
@@ -63,7 +69,7 @@ export class MiddlebodyComponent implements OnInit {
       this.addFields(this.socialmails);
     });
     // document.querySelector("promotion").style.visibility = none;
-    this.inbox = (this.route.url === '/');
+    this.inbox = (this.route.url === '/inbox');
     console.log(this.route.url);
     
     this.shape = 'star_border';

@@ -4,15 +4,29 @@
             menu</mat-icon>
         <img class="gb_va" src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r2.png" srcset="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r2.png 1x, https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_2x_r2.png 2x "
             alt="" aria-hidden="true" style="width:109px;height:40px">
-        <span class="example-spacer">
-        <div class="tb-search">
-            <mat-icon matTooltip="search" matTooltipClass="tooltip">search</mat-icon>
-            <input (focus)="focus()" (focusout)="focusout()" type="search" placeholder="Search mail">
-            <mat-icon matTooltip="show search options"  (click)="close=!close" matTooltipClass="tooltip">arrow_drop_down</mat-icon>
-        </div>
-    </span>
+            <span class="example-spacer">
+                <div class="tb-search">
+                    <mat-icon matTooltip="search" matTooltipClass="tooltip" (click)="newSearch()">search</mat-icon>
+                    <input (focus)="focus()" (focusout)="focusout()" type="search" [(ngModel)]="searchText" (ngModelChange)="currentText()" placeholder="Search mail">
+                    <mat-icon matTooltip="show search options"  (click)="close=!close" matTooltipClass="tooltip">arrow_drop_down</mat-icon>
+                </div>
+            </span>
         <div class="tb-option">
-            <mat-icon matTooltip="Support" matTooltipClass="tooltip">help_outline</mat-icon>
+            <mat-icon matTooltip="Support" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" matTooltipClass="tooltip">help_outline</mat-icon>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <span>Help</span>
+            </button>
+            <button mat-menu-item>
+              <span>Training</span>
+            </button>
+            <button mat-menu-item>
+                <span>Updates</span>
+              </button>
+              <button mat-menu-item>
+                <span>Send feedback</span>
+              </button>
+          </mat-menu>
             <mat-icon matTooltip="Settings" matTooltipClass="tooltip">settings</mat-icon>
             <mat-icon matTooltip="Google apps" matTooltipClass="tooltip">apps</mat-icon>
             <mat-icon matTooltip="Google Account" matTooltipClass="tooltip">account_circle</mat-icon>
@@ -60,8 +74,8 @@
         <input type="text" class="filterform-input">
     </div>
     <section class="checkbox">
-        <mat-checkbox class="example-margin">Has attachment</mat-checkbox>
-        <mat-checkbox class="example-margin">Dont include chats</mat-checkbox>
+        <mat-checkbox color="primary" class="example-margin">Has attachment</mat-checkbox>
+        <mat-checkbox color="primary" class="example-margin">Dont include chats</mat-checkbox>
     </section>
 
     <section class="action-row">

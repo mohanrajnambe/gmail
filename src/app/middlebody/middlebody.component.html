@@ -1,6 +1,30 @@
   <div class="top-icon-bar">
-    <span class="top-icons"><mat-checkbox matTooltip="Select all" matTooltipClass="tooltip"></mat-checkbox></span>
-    <span class="top-icons"><mat-icon>arrow_drop_down</mat-icon></span>
+    <span class="top-icons"><mat-checkbox color="warn" matTooltip="Select all" matTooltipClass="tooltip" ></mat-checkbox></span>
+    <span class="top-icons">
+        <mat-icon matTooltip="Select" matTooltipClass="tooltip" mat-icon-button [matMenuTriggerFor]="menu" 
+        aria-label="Example icon-button with a menu">arrow_drop_down</mat-icon>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <span>All</span>
+          </button>
+          <!-- <hr> -->
+          <button mat-menu-item>
+            <span>None</span>
+          </button>
+          <button mat-menu-item>
+            <span>Read</span>
+          </button>
+          <button mat-menu-item>
+            <span>Unread</span>
+          </button>
+          <button mat-menu-item>
+            <span>Starred</span>
+          </button>
+          <button mat-menu-item>
+            <span>Unstarred</span>
+          </button>
+        </mat-menu>
+    </span>
     <!-- <span class="top-icons"><i class="fa fa-refresh" aria-hidden="true"></i></span> -->
     <span class="top-icons gap"><mat-icon matTooltip="Refresh" matTooltipClass="tooltip" mat-stroked-button (click)="openSnackBar()" aria-label="Show an example snack-bar">
       refresh</mat-icon></span>
@@ -35,11 +59,11 @@
     <mat-icon mat-list-icon>inbox</mat-icon>
     <p> Primary</p>
   </div>
-  <div [ngClass]="(socialactive)?'active':''" id="social" (click)="getSocialMails();">
+  <div [ngClass]="(socialactive)?'socialactive':''" id="social" (click)="getSocialMails();">
     <mat-icon mat-list-icon>people</mat-icon>
     <p>Social</p>
   </div>
-  <div [ngClass]="(promotionsactive)?'active':''" id="promotions" (click)="getPromotionMails();">
+  <div [ngClass]="(promotionsactive)?'promotionsactive':''" id="promotions" (click)="getPromotionMails();">
     <mat-icon mat-list-icon>local_offer</mat-icon>
     <p>Promotions</p>
   </div>
@@ -54,24 +78,26 @@
 </div>
 
 <table mat-table [dataSource]="mails" class="mat-elevation-z0">
+
   <ng-container matColumnDef="checkbox">
     <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
     <td mat-cell *matCellDef="let mail" [ngClass]="(mail.read)?'readmail':'notreadmail'">
-      <mat-checkbox matTooltip="Select" matTooltipClass="tooltip"></mat-checkbox>
+      <mat-checkbox color="warn" matTooltip="Select" matTooltipClass="tooltip" ></mat-checkbox>
     </td>
   </ng-container>
   <ng-container matColumnDef="starIcon">
     <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
     <td mat-cell *matCellDef="let mail" (click)="mail.read=true" [ngClass]="(mail.read)?'readmail':'notreadmail'">
       <mat-icon matTooltip="Star" matTooltipClass="tooltip"
-        (click)="mail.shape=((mail.shape == 'star') ? 'star_border':'star');"
-         [ngClass]="(mail.shape == 'star')?'staractive':'starinactive'">{{mail.shape}}</mat-icon>
+        (click)="mail.shape=((mail.shape == 'star') ? 'star_border':'star');" [ngClass]="(mail.shape == 'star')?'staractive':'starinactive'">{{mail.shape}}</mat-icon>
     </td>
   </ng-container>
+  
   <ng-container matColumnDef="sendername">
     <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
-    <td mat-cell *matCellDef="let mail" (click)="mail.read=true" [ngClass]="(mail.read)?'readmail':'notreadmail'"> <p [ngClass]="(mail.read)?'readText':''">{{mail.sendername}}</p> </td>
+    <td mat-cell *matCellDef="let mail" (click)="mail.read=true" [ngClass]="(mail.read)?'readmail':'notreadmail'"><p [ngClass]="(mail.read)?'readText':''">{{mail.sendername}}</p></td>
   </ng-container>
+  
   <ng-container matColumnDef="mailcontent">
     <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
     <td mat-cell *matCellDef="let mail" (click)="mail.read=true" [ngClass]="(mail.read)?'readmail':'notreadmail'"> <p [ngClass]="(mail.read)?'readText':''">{{mail.subject}} </p>&nbsp;- &nbsp;{{mail.content}} </td>
@@ -83,5 +109,6 @@
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns" [hidden]="true"></tr>
-  <tr mat-row [ngClass]="(primaryactive)?'allrows':''" *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+  <tr mat-row [ngClass]="(primaryactive || socialactive || promotionsactive)?'allrows':''" *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>

@@ -5,11 +5,45 @@
   <title>Gmail</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="https://lh3.googleusercontent.com/VS3B_qhOFTYsdyNfnlr98zg3HNjB_Gcs9bxVnaQO9MysAoBOXMHATClhRviImKKJV8RV-0s7hl8KeVQcij5Iagb1exHzt40x679l8Q=w0">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="mat-typography">
-  <app-root></app-root>
+  <app-root>
+    <img class="logo"  src="https://1000logos.net/wp-content/uploads/2018/05/Gmail-logo.png"> Loading Gmail
+    <style>
+      app-root {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: rgb(128, 125, 125);
+        font-family: -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Oxygen-Sans,
+            Ubuntu,
+            Cantarell,
+            Helvetica,
+            sans-serif; 
+        font-size: 1.5em;
+      }
+      body {
+        background: white;
+        margin: 0;
+        padding: 0;
+      }
+      @keyframes logo {
+      }
+      .logo {
+        height: 350px;   
+        width: 480px;
+        animation: logo 1.5s ease-out infinite;
+      }
+    </style>
+  </app-root>
 </body>
 </html>

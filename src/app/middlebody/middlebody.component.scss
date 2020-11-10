@@ -1,5 +1,9 @@
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
+::ng-deep .my-menu {
+    width: 190px;
+}
+
 .top-icon-bar{
     position: sticky;
     top: 0;
@@ -84,12 +88,31 @@ p{
     }
 }
 
+.socialactive{
+    border-bottom: 2px solid #1a73e8;
+    color:#1a73e8;
+    // background-color:  #FCE8E6 !important;
+    mat-icon{
+        color:#1a73e8;;
+    }
+}
+
+.promotionsactive{
+    border-bottom: 2px solid #188038;
+    color:#188038;
+    // background-color:  #FCE8E6 !important;
+    mat-icon{
+        color:#188038;;
+    }
+}
+
 .allrows{
-    background-color: #fdfbfb;
+    background-color: #e9e8e8;
     p{
     font-weight: 600;
     }
 }
+
 
 
 .icons{
@@ -184,6 +207,11 @@ table {
 
 }
 
+.readbtn{
+    width: 100px;
+}
+
+
 .mat-column-sendername{
     width: 12rem;
 }
@@ -200,6 +228,7 @@ table {
 .mat-column-starIcon {
     width: 40px;
 }
+
 
 .message{
     border-bottom: 0.5px solid #dadbdd;
