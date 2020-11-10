@@ -37,7 +37,8 @@ export class MiddlebodyComponent implements OnInit {
     'mailcontent',
     'date'
   ];
-  
+  allChecked: boolean = false;
+
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
@@ -82,7 +83,7 @@ export class MiddlebodyComponent implements OnInit {
         array[i] = array[j];
         array[j] = temp;
     }
-}
+  }
 
   ngOnInit(): void {
   }
@@ -90,6 +91,7 @@ export class MiddlebodyComponent implements OnInit {
     for (var i = 0; i < currentmails.length; i++) {
       currentmails[i].shape = "star_border";
       currentmails[i].read = false;
+      currentmails[i].checked = false;
     }
   }
   getPrimaryMails():void {
@@ -131,4 +133,24 @@ export class MiddlebodyComponent implements OnInit {
     });
   }
 
+  updateAllChecks() {
+    console.log("up");
+    this.allChecked = (this.mails.every(t => t.checked));
+  }
+
+  someChecked() : boolean {
+    // console.log("mid");
+    var count = 0;
+    this.mails.forEach(t => {
+      if (t.checked) count++;
+    });
+
+    return count > 0 && !this.allChecked;
+  }
+
+  setAll(checked: boolean) {
+    console.log("down");
+    this.allChecked = checked;
+    this.mails.forEach(t => t.checked = checked);
+  }
 }
