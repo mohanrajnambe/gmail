@@ -1,6 +1,6 @@
   <div class="top-icon-bar">
     <span class="top-icons">
-      <mat-checkbox color="warn"
+      <mat-checkbox color="primary"
                     matTooltip="Select all"
                     matTooltipClass="tooltip" 
                     [checked]="allChecked"
@@ -89,7 +89,7 @@
   <ng-container matColumnDef="checkbox">
     <th mat-header-cell *matHeaderCellDef style="display: none;"></th>
     <td mat-cell *matCellDef="let mail" [ngClass]="(mail.read)?'readmail':'notreadmail'">
-      <mat-checkbox color="warn" 
+      <mat-checkbox color="primary" 
                     matTooltip="Select" 
                     matTooltipClass="tooltip"
                     [(ngModel)]="mail.checked"
