@@ -71,15 +71,15 @@
   </div>
 </nav>
 <div class="composewrapper">
-<form *ngIf="composepanel" class="add-window" [ngClass]="{'minimum': !minimize,'large': large} ">
-  <div class='header' *ngIf="minimize" >New Message
+<form *ngIf="composepanel" class="add-window" [ngClass]="{'minimum': minimize,'large': large} ">
+  <div class='header' >New Message
     <span class="headericons">
     <mat-icon id="minmax" (click)="toggleComposePanel()">minimize</mat-icon>
     <mat-icon id="enlarge" (click)="maximizeComposePanel()"  >open_in_full</mat-icon> 
-    <mat-icon (click)="openCompose()" >close</mat-icon> </span>
+    <mat-icon (click)="closeCompose()" >close</mat-icon> </span>
   </div>
   <!-- *ngIf="minimize" -->
-  <div class='inner' id="hide" *ngIf="minimize" >
+  <div class='inner' id="hide">
     <div>
       <input type="text" placeholder="To" required>
     </div>

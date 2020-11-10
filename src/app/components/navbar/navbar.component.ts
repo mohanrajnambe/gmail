@@ -9,7 +9,7 @@ import { SideNavService } from '../services/side-nav.service';
 export class NavbarComponent implements OnInit {
   entered: boolean = false;
   composepanel: Boolean = false;
-  public minimize:Boolean = true;
+  public minimize:Boolean = false;
   large: Boolean =false;
   constructor(public sidenavservice: SideNavService,public searchService:SearchService) {
     
@@ -18,12 +18,25 @@ export class NavbarComponent implements OnInit {
     this.activate('inbox');
   }
 
+  closeCompose(){
+    this.composepanel = false;
+    this.large = false;
+    this.minimize = false;
+  }
+
   openCompose() {
     console.log(this.composepanel, "working");
-    this.composepanel= !this.composepanel;
+    if(this.composepanel==true){
+      this.closeCompose();
+    }else{
+      this.composepanel = true;
+    }
   }
 
   maximizeComposePanel(){
+    if(this.minimize==true && this.large==false){
+      this.toggleComposePanel();
+    }
     this.large = !this.large
     let myContainer = document.getElementById('enlarge') as HTMLElement;
     myContainer.innerHTML = this.large?"close_fullscreen":"open_in_full";
@@ -31,17 +44,16 @@ export class NavbarComponent implements OnInit {
     console.log(this.large);
   }
 
-  // need fix
-//   toggleComposePanel(){
-//     this.minimize = !this.minimize;
-//     let myContainer = document.getElementById('minmax') as HTMLElement;
-// myContainer.innerHTML = this.minimize?"minimize":"maximize";
-//     if(this.minimize==true){
-//       let elem = document.getElementById('hide') as HTMLElement;
-//       elem.setAttribute("style", "display:none");
-//     }
 
-  // }
+  toggleComposePanel(){
+    if(this.minimize==false && this.large==true){
+      this.maximizeComposePanel();
+    }
+    this.minimize = !this.minimize;
+    let myContainer = document.getElementById('minmax') as HTMLElement;
+myContainer.innerHTML = this.minimize?"minimize":"maximize";
+
+  }
 
   mouseEnter() {
     if (!this.entered && !this.sidenavservice.hideSideNav) {
