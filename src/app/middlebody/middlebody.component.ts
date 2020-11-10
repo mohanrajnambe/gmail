@@ -131,4 +131,10 @@ export class MiddlebodyComponent implements OnInit {
     });
   }
 
+  load(mail) {
+    console.log("Hello");
+    mail.read = true;
+    console.log(mail);
+  }
+
 }

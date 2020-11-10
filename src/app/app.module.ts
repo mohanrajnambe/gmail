@@ -22,6 +22,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReadmailComponent } from './middlebody/readmail/readmail.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     NavbarComponent,
     PageContentComponent,
     RightSlideNavComponent,
+    ReadmailComponent,
   ],
   imports: [
     BrowserModule,
