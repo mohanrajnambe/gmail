@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'starred', component: MiddlebodyComponent },
   { path: 'sent', component: MiddlebodyComponent },
   { path: 'trash', component: MiddlebodyComponent },
-  { path: 'message', component: ReadmailComponent },
+  { path: 'message', component: ReadmailComponent},
 ];
 
 @NgModule({
@@ -27,6 +27,7 @@ export class AppRoutingModule {
     router.events.subscribe((event) => { //fires on every URL change
       this.routerURLTest = router.url;
       this.routerURLTest = this.routerURLTest.slice(1);
+      
       this.routerURLTest = this.routerURLTest.charAt(0).toLocaleUpperCase()+this.routerURLTest.slice(1);
        title.setTitle(this.routerURLTest);
     });

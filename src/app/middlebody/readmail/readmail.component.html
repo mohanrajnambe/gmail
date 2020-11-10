@@ -1,4 +1,48 @@
-<p>{{singleMail.sendername}}</p>
-<p>{{singleMail.subject}}</p>
-<p>{{singleMail.content}}</p>
-<p>{{singleMail.date}}</p>
+<div class="top-icon-bar">
+    <!-- <span class="top-icons"><mat-checkbox color="warn" matTooltip="Select all" matTooltipClass="tooltip" ></mat-checkbox></span> -->
+    <!-- assignment_return -->
+    <span class="top-icons">
+          <mat-icon matTooltip="Back to Inbox" matTooltipClass="tooltip" (click)="back()">arrow_back</mat-icon>
+          <mat-icon matTooltip="Archive"matTooltipClass="tooltip" >archive</mat-icon>
+          <mat-icon matTooltip="Report spam" matTooltipClass="tooltip">report</mat-icon>
+          <mat-icon matTooltip="Delete"matTooltipClass="tooltip" >delete</mat-icon>
+          <mat-icon matTooltip="Mark as unread"matTooltipClass="tooltip" >mark_email_unread</mat-icon>
+          <mat-icon matTooltip="Snooze" matTooltipClass="tooltip">watch_later</mat-icon>
+          <mat-icon matTooltip="Add to tasks" matTooltipClass="tooltip">add_task</mat-icon>
+          <mat-icon matTooltip="Move to"  matTooltipClass="tooltip">assignment_return</mat-icon>
+          <mat-icon matTooltip="Labels" matTooltipClass="tooltip">label</mat-icon>
+      </span>
+    <!-- <span class="top-icons gap">
+        <mat-icon matTooltip="More" matTooltipClass="tooltip" >more_vert</mat-icon>
+      </span> -->
+    <span class="space"></span>
+    <span class="pagination_icons">
+        <!-- <span class="top-icons" id="pgno"><p>1-50 of 1,471</p></span> -->
+    <span class="top-icons page">{{singleMail.id}} of 50</span>
+    <span class="top-icons"><mat-icon matTooltip="Older" matTooltipClass="tooltip" >keyboard_arrow_left</mat-icon></span>
+    <span class="top-icons"><mat-icon matTooltip="Newer" matTooltipClass="tooltip">keyboard_arrow_right</mat-icon></span>
+    </span>
+    <!-- <span class="top-icons"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span> -->
+  </div>
+  <div class="contents">
+    <p class="mail-subject">{{singleMail.subject}}</p>
+    <!-- <p class="mail-subject">eiusmod commodo sunt sunt irure</p> -->
+    <br>
+    <!-- <p class="mail-sender">{{singleMail.sendername}}</p> -->
+    <div class="mail-sender">
+    <img src="//ssl.gstatic.com/ui/v1/icons/mail/profile_mask2.png"  >    
+    <div class="details">
+    <h3>{{singleMail.sendername}} <p><span>s</span>example@email.com </p></h3>
+    <br>
+    <p class="last">to me</p>
+    </div>
+    </div>
+    <p class="mail-content">{{singleMail.content}}</p>
+    <!-- <p class="mail-content">Reprehenderit eu incididunt est cillum esse. Sint nulla mollit amet enim cillum occaecat labore sint cillum deserunt ad laboris esse. Proident Lorem officia esse ipsum amet est excepteur ut. Nisi minim consequat laborum consequat veniam tempor pariatur quis sunt. Laboris aliqua enim minim Lorem consequat magna aliquip sint. Nisi esse culpa non veniam tempor exercitation irure adipisicing ea dolore excepteur aliquip magna reprehenderit. Dolor adipisicing ex consectetur ad labore Lorem in sunt ut nisi officia.</p> -->
+    <!-- <p class="mail-date">{{singleMail.date}}</p> -->
+    <!-- <p class="mail-date">Nov 6</p> -->
+    <div class="mail-buttons"> 
+      <button mat-stroked-button><mat-icon>undo</mat-icon>Reply</button>
+      <button mat-stroked-button><mat-icon>forward</mat-icon>Forward</button>
+    </div>
+  </div>

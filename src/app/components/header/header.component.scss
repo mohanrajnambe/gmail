@@ -166,3 +166,6 @@ input:focus {
 .menu {
     background-color: #72767a;
 }
+img[ng-reflect-router-link]{
+    outline: 0;
+ }

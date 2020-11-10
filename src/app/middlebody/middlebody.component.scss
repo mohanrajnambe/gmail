@@ -266,3 +266,20 @@ mat-icon:hover{
 //     font-size: 20px;
 //     padding-top: 4px;
 //     color: grey;
+a{
+    text-decoration: none !important;
+}
+td[ng-reflect-router-link]{
+    outline: 0;
+ }
+
+ .page{
+    color: #7c7c7c;
+  position: relative;
+  font-size: 13px;
+  top: -15%;
+}
+
+.sub{
+    text-transform: capitalize;
+}

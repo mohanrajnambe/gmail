@@ -23,6 +23,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReadmailComponent } from './middlebody/readmail/readmail.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { ReadmailComponent } from './middlebody/readmail/readmail.component';
     MatCheckboxModule,
     MatMenuModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
