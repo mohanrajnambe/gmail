@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Routes, RouterModule, Router } from '@angular/router';
 import { MiddlebodyComponent } from './middlebody/middlebody.component';
+import { ReadmailComponent } from './middlebody/readmail/readmail.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/inbox', pathMatch:'full'},
-  { path: 'inbox', component: MiddlebodyComponent },
+  { path: 'inbox', component: MiddlebodyComponent},
   { path: 'starred', component: MiddlebodyComponent },
   { path: 'sent', component: MiddlebodyComponent },
-  { path: 'trash', component: MiddlebodyComponent }
+  { path: 'trash', component: MiddlebodyComponent },
+  { path: 'message', component: ReadmailComponent },
 ];
 
 @NgModule({
