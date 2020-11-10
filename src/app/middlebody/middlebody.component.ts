@@ -4,6 +4,7 @@ import { MatSnackBar,MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition, } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { SearchService } from '../services/search.service';
+import { MailserviceService } from './mailservice.service';
 
 
 @Component({
@@ -46,7 +47,8 @@ export class MiddlebodyComponent implements OnInit {
 
 
   
-  constructor(private http: HttpClient,private route:Router,public searchserv: SearchService,private _snackBar: MatSnackBar) { 
+  constructor(private http: HttpClient, private route: Router, public searchserv: SearchService, private _snackBar: MatSnackBar,private mailService: MailserviceService) { 
+    
     let obs = this.http.get("https://5fa4f5bf732de900162e88cb.mockapi.io/emails/primary");
     obs.subscribe((response) => {
       this.primarymails = response;
@@ -54,6 +56,7 @@ export class MiddlebodyComponent implements OnInit {
       this.mails = this.primarymails;
       this.shuffleArray(this.mails);
       this.originalmails = JSON.parse(JSON.stringify(this.mails));
+      mailService.setMails(this.originalmails);
     });
     
     
@@ -98,6 +101,7 @@ export class MiddlebodyComponent implements OnInit {
     this.primaryactive = true;
     this.socialactive = false;
     this.promotionsactive = false;
+    this.mailService.setMails(this.originalmails);
   }
   getPromotionMails():void {
     this.mails = this.promotionmails;
@@ -105,6 +109,7 @@ export class MiddlebodyComponent implements OnInit {
     this.primaryactive = false;
     this.socialactive = false;
     this.promotionsactive = true;
+    this.mailService.setMails(this.originalmails);
   }
   getSocialMails():void {
     this.mails = this.socialmails;
@@ -112,6 +117,7 @@ export class MiddlebodyComponent implements OnInit {
     this.primaryactive = false;
     this.socialactive = true;
     this.promotionsactive = false;
+    this.mailService.setMails(this.originalmails);
   }
 
   filterfunction(){
@@ -135,6 +141,8 @@ export class MiddlebodyComponent implements OnInit {
     console.log("Hello");
     mail.read = true;
     console.log(mail);
+
+    // this.route.navigate(['/message']);
   }
 
 }

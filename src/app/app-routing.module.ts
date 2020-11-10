@@ -6,7 +6,7 @@ import { ReadmailComponent } from './middlebody/readmail/readmail.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/inbox', pathMatch:'full'},
-  { path: 'inbox', component: MiddlebodyComponent },
+  { path: 'inbox', component: MiddlebodyComponent},
   { path: 'starred', component: MiddlebodyComponent },
   { path: 'sent', component: MiddlebodyComponent },
   { path: 'trash', component: MiddlebodyComponent },
