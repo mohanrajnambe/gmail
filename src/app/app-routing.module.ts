@@ -29,7 +29,14 @@ export class AppRoutingModule {
       this.routerURLTest = this.routerURLTest.slice(1);
       
       this.routerURLTest = this.routerURLTest.charAt(0).toLocaleUpperCase()+this.routerURLTest.slice(1);
-       title.setTitle(this.routerURLTest);
+      if(this.routerURLTest.startsWith('Message')){
+      title.setTitle("Mail body - Content");
+
+      }else{
+      title.setTitle(this.routerURLTest); 
+        
+      }
+      
     });
  }
 }

@@ -1,9 +1,9 @@
 <nav id="sidebar" [ngClass]="{'hidden': sidenavservice.hideSideNav }" (mouseenter)="mouseEnter() "
   (mouseleave)="mouseLeave()">
   <div class="nav-list">
-    <div class="compose align-left" [ngClass]="{'nav-folded':!sidenavservice.hideSideNav}"><img
+    <div class="compose align-left" (click)="openCompose()" [ngClass]="{'nav-folded':!sidenavservice.hideSideNav}"><img
         src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png" alt="compose"><span class="composetext"
-        *ngIf="sidenavservice.hideSideNav">Compose</span></div>
+        *ngIf="sidenavservice.hideSideNav"  >Compose</span></div>
     <a [routerLink]="['/']">
       <div class="nav-item" id="inbox" (click)="activate('inbox')">
         <mat-icon mat-list-icon>inbox</mat-icon>
@@ -70,3 +70,43 @@
     <mat-icon *ngIf="sidenavservice.hideSideNav" mat-list-icon>chat</mat-icon>
   </div>
 </nav>
+<div class="composewrapper">
+<form *ngIf="composepanel" class="add-window" [ngClass]="{'minimum': !minimize,'large': large} ">
+  <div class='header' *ngIf="minimize" >New Message
+    <span class="headericons">
+    <mat-icon id="minmax" (click)="toggleComposePanel()">minimize</mat-icon>
+    <mat-icon id="enlarge" (click)="maximizeComposePanel()"  >open_in_full</mat-icon> 
+    <mat-icon (click)="openCompose()" >close</mat-icon> </span>
+  </div>
+  <!-- *ngIf="minimize" -->
+  <div class='inner' id="hide" *ngIf="minimize" >
+    <div>
+      <input type="text" placeholder="To" required>
+    </div>
+      <div>
+        <input type="text"  placeholder="Subject"  required>
+    </div>
+        <div><textarea></textarea></div>
+        <div class='button-bar'>
+          <!-- <div class="bb"> -->
+          <button mat-raised-button (click)="openCompose()">Send</button>
+          <mat-icon id="blueicon" >arrow_drop_down</mat-icon>
+        <!-- </div> -->
+        
+        <div class="centericons">
+          <mat-icon >format_color_text</mat-icon> 
+          <mat-icon >attach_file</mat-icon>
+          <mat-icon >insert_link</mat-icon> 
+          <mat-icon >insert_emoticon</mat-icon> 
+          <mat-icon >insert_drive_file</mat-icon> 
+          <mat-icon >insert_photo</mat-icon> 
+          <mat-icon >lock</mat-icon> 
+        </div>
+        <div class="endicons">
+          <mat-icon >more_vert</mat-icon>
+          <mat-icon >delete</mat-icon>
+        </div>
+        </div>
+      </div>
+</form>
+</div>
